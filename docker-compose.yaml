@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:10-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: probono
+      POSTGRES_USERNAME: probono
+      PGDATABASE: probono
+      PGUSER: probono
+      PGPASSWORD: probono
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres-network
+    volumes: 
+      - /var/run/postgresql:/var/run/postgresql
+      - /var/lib/postgresql:/var/lib/postgresql/data
+networks:
+  postgres-network:
+    driver: bridge
