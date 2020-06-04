@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = process.env.DATABASE_URI || {
     dialect: 'postgres',
     host: 'localhost',
     database: 'probono',
