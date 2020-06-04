@@ -10,6 +10,7 @@ routes.get('/', function(req, res) {
     return res.json("Hello World !");
 });
 
-routes.post('/user', UserController.store);
+routes.get('/users', UserController.list);
+routes.post('/users', UserController.store);
 
 module.exports = routes;

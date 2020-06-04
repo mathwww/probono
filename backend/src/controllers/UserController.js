@@ -7,5 +7,10 @@ module.exports = {
         const user = await User.create({name, email});
 
         return res.json(user);
+    },
+
+    async list(req, res) {
+        const users = User.findAll();
+        return res.json(users);
     }
 };
