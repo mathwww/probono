@@ -12,9 +12,9 @@ class Progress extends Model {
         })
     }
 
-    static associate(models) {
-        this.belongsTo(models.Process, {foreignKey: 'processId', as: 'process'});
-    }
+    // static associate(models) {
+    //     this.belongsTo(models.Process, {foreignKey: 'processId'});
+    // }
 }
 
 module.exports = Progress;

@@ -3,20 +3,16 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     
-    return queryInterface.createTable('users', { 
-      cpf: {
-        type: Sequelize.STRING(11),
+    return queryInterface.createTable('roles', { 
+      id: {
+        type: Sequelize.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false
       },
-      name: {
-        type: Sequelize.STRING,
+      role: {
+        type: Sequelize.ENUM('ADMIN', 'LAWYER', 'CLIENT', 'USER'),
         allowNull: false
-      },
-      email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -26,13 +22,13 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
-    });
-
+     });
+    
   },
 
   down: (queryInterface, Sequelize) => {
     
-      return queryInterface.dropTable('users');
+    return queryInterface.dropTable('roles');
     
   }
 };

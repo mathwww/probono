@@ -11,9 +11,9 @@ class Process  extends Model {
         })
     }
 
-    static associate(models) {
-        this.hasMany(models.Progress, {foreignKey: 'processId', as: 'progresses'});
-    }
+    // static associate(models) {
+    //     this.hasMany(models.Progress, {as: 'progresses'});
+    // }
 }
 
 module.exports = Process;
