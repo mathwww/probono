@@ -20,7 +20,7 @@ module.exports = {
 
         user = await User.findOne({attributes: ['name'],where: {email}, include: [{model: Role, as: 'roles', attributes: ['role']}]});
 
-        const accessToken = jwt.sign({ username: user.name,  role: user.roles.role}, accessTokenSecret);
+        const accessToken = jwt.sign({ username: user.name,  role: user.roles.role}, accessTokenSecret, { expiresIn: '20m' });
 
         const message = {accessToken, user};
 

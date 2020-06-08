@@ -18,7 +18,8 @@ export default function Login() {
             // localStorage.setItem('ongId', id);
             // localStorage.setItem('ongName', response.data.name);
             localStorage.setItem('username', response.data.name);
-            history.push('/profile');
+            localStorage.setItem('accessToken', response.data.accessToken);
+            history.push('/ListProcesses');
         }catch(err){
             alert('Falha no login. Tente novamente');
         }
