@@ -1,13 +1,16 @@
-import {React} from 'react';
+import React, {useState, useEffect} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 
 import './styles.css';
 
 import api from '../../services/api';
+import {FiPower, FiTrash2} from 'react-icons/fi';
+
 
 export default function ListProcesses() {
     const userName = localStorage.getItem('username');
     const accessToken = localStorage.getItem('accessToken');
-    const [processes, setIncidents] = useState([]);
+    const [processes, setProcesses] = useState([]);
     const history = useHistory();
 
     useEffect(() => {
