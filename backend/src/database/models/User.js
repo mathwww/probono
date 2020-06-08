@@ -10,7 +10,15 @@ class User extends Model {
                 type: DataTypes.STRING(11),
                 primaryKey: true
             },
-            roleId: DataTypes.INTEGER
+            roleId:  {
+               type: DataTypes.INTEGER,
+               references: {
+                model: 'roles',
+                key: 'id',
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
+              }
+            }
         },{
             sequelize,
             modelName: 'users'

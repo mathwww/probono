@@ -17,7 +17,7 @@ module.exports = {
         const hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
         user = await User.create({name, email, password: hash, cpf, roleId});
 
-        return res.json('Usuer Successfully created');
+        return res.json('User Successfully created');
     },
 
     async list(req, res) {

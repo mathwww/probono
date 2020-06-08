@@ -19,7 +19,8 @@ Progress.belongsTo(Process);
 Process.hasMany(Progress);
 // Role.associate(connection.models);
 // User.associate(connection.models);
-Role.belongsTo(User);
-User.hasOne(Role);
+User.belongsTo(Role, {as: 'roles', foreignKey: 'roleId'});
+Role.hasOne(User, {foreignKey: 'roleId', as: 'users'});
+
 
 module.exports = connection;

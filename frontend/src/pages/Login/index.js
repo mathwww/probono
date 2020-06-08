@@ -7,15 +7,17 @@ import './styles.css';
 import api from '../../services/api';
 
 export default function Login() {
-    const [id, setId] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const history = useHistory();
     async function handleLogin(e) {
         e.preventDefault();
 
         try{
-            const response = await api.post('sessions', { id } );
-            localStorage.setItem('ongId', id);
-            localStorage.setItem('ongName', response.data.name);
+            const response = await api.post('sessions', { email, password } );
+            // localStorage.setItem('ongId', id);
+            // localStorage.setItem('ongName', response.data.name);
+            localStorage.setItem('username', response.data.name);
             history.push('/profile');
         }catch(err){
             alert('Falha no login. Tente novamente');
@@ -27,10 +29,17 @@ export default function Login() {
             <section className="form">
                 {/* <img src={logoImg} alt="Be Ther Hero"/> */}
                 <form onSubmit={handleLogin}>
-                    <h1>Faça seu logon</h1>
-                    <input placeholder="Sua ID"
-                        value={id}
-                        onChange={e => setId(e.target.value)}
+                    <h1>Faça login</h1>
+                    <input placeholder="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    
+                    <input placeholder="Senha"
+                        value={password}
+                        type="password"
+                        onChange={e => setPassword(e.target.value)}
+                        style={{marginTop: "5px"}}
                     />
                     <button className="button" type="submit">Entrar</button>
                     <Link className="back-link" to="/register">
