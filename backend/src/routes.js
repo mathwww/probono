@@ -20,4 +20,6 @@ routes.post('/sessions', SessionController.create);
 routes.get('/processes', ProcessController.index);
 routes.post('/processes', ProcessController.create);
 
+routes.post('/processes/:id/progress', ProcessController.add);
+
 module.exports = routes;

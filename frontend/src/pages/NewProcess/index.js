@@ -104,7 +104,7 @@ export default function NewProcess() {
                         onChange={e => setCpfClient(e.target.value)}
                         mask="111.111.111-11"
                     />
-                    {error && <span color={"red"}>CPF Inválido</span>}
+                    {error && <span className="error" color={"red"}>CPF Inválido</span>}
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
         </div>

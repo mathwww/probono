@@ -9,7 +9,8 @@
     "react-icons": "^3.10.0",
     "react-maskedinput": "^4.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "react-tooltip": "^4.2.6"
   },
   "devDependencies": {},
   "scripts": {
