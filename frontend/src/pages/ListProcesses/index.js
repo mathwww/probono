@@ -31,13 +31,13 @@ export default function ListProcesses() {
         <div className="profile-container">
         <header>
             <spam>Bem Vindo, {userName}</spam>
-            <Link className="button" to="/incidents/new">Cadastrar novo caso</Link>
+            <Link className="button" to="/processes/new">Cadastrar novo processo</Link>
             <button type="button" onClick={handleLogOut}>
                 <FiPower size={18} color={"#E02041"}/>     
             </button>
         </header>
 
-        <h1>Casos cadastrados</h1>
+        <h1>Processos cadastrados</h1>
         <ul>
             {processes.map(process => (
                 <li key={process.id}>

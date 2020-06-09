@@ -17,9 +17,9 @@ export default function Login() {
             const response = await api.post('sessions', { email, password } );
             // localStorage.setItem('ongId', id);
             // localStorage.setItem('ongName', response.data.name);
-            localStorage.setItem('username', response.data.name);
+            localStorage.setItem('username', response.data.user.name);
             localStorage.setItem('accessToken', response.data.accessToken);
-            history.push('/ListProcesses');
+            history.push('/processes');
         }catch(err){
             alert('Falha no login. Tente novamente');
         }
