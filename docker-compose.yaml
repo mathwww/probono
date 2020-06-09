@@ -18,6 +18,16 @@ services:
     volumes: 
       - /var/run/postgresql:/var/run/postgresql
       - /var/lib/postgresql:/var/lib/postgresql/data
+  backend:
+    image: mathwww/probono-backend
+    ports:
+      - "3333:3333"
+    environment:
+      DATABASE_HOST: db
+    networks:
+      - postgres-network
+    depends_on:
+      - db
 networks:
   postgres-network:
     driver: bridge
