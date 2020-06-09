@@ -16,6 +16,7 @@ export default function NewProcess() {
     const history = useHistory();
 
     function validateCPF(cpf){
+        console.log(cpf);
         if(cpf === '') {
             setError(true);
             return false;	
@@ -35,14 +36,14 @@ export default function NewProcess() {
                 setError(true);
                 return false;	
             }	
-            let numeros = cpf.substring(0,9);
-            let digitos = cpf.substring(9);
-            let soma = 0;
+            var numeros = cpf.substring(0,9);
+            var  digitos = cpf.substring(9);
+            var  soma = 0;
             for (let i = 10; i > 1; i--) {
                     soma += numeros.charAt(10 - i) * i;
             }
-            let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado !== digitos.charAt(0)){
+            var  resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado !== Number(digitos.charAt(0))){
                 setError(true);
                 return false;
             }
@@ -52,7 +53,7 @@ export default function NewProcess() {
                     soma += numeros.charAt(11 - i) * i;
             }
             resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado !== digitos.charAt(1)){
+            if (resultado !== Number(digitos.charAt(1))){
                 setError(true);
                 return false;
             }

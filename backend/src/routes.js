@@ -18,5 +18,6 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.create);
 
 routes.get('/processes', ProcessController.index);
+routes.post('/processes', ProcessController.create);
 
 module.exports = routes;
